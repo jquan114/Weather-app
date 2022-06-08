@@ -1,25 +1,16 @@
-import logo from './logo.svg';
+import React from "react";
 import './App.css';
+import Data from "./weatherData";
+import Forecast from "./components/WeatherForecast";
 
-function App() {
+export default function App() {
+  const forecast = Data.map((ele, index) => {
+    return <Forecast {...ele} key={index} />;
+  });
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>My WeatherIcons App</h1>
+      <section className="Forecast">{forecast}</section>
     </div>
   );
 }
-
-export default App;
